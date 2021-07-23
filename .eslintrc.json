@@ -1,0 +1,89 @@
+{
+	"env": {
+		"browser": true,
+		"es2021": true,
+		"jest": true,
+		"node": true
+	},
+	"extends": [
+		"eslint:recommended",
+		"plugin:@typescript-eslint/eslint-recommended",
+		"plugin:@typescript-eslint/recommended-requiring-type-checking",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:import/recommended",
+		"plugin:import/typescript",
+		"plugin:json/recommended",
+		"plugin:prettier/recommended",
+		"plugin:react-hooks/recommended",
+		"plugin:react-native/all",
+		"plugin:react/recommended",
+		"plugin:unicorn/recommended"
+	],
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": 2021,
+		"sourceType": "module",
+		"project": "./tsconfig.json"
+	},
+	"plugins": ["@typescript-eslint", "import", "prettier", "react", "react-native"],
+	"settings": {
+		"import/extensions": [".js", ".jsx", ".ts", ".tsx"],
+		"import/ignore": [".css$", "node_modules/*"],
+		"import/parsers": {
+			"@typescript-eslint/parser": [".ts", ".tsx"]
+		},
+		"import/resolver": {
+			"node": {
+				"extensions": [".js", ".jsx", ".ts", ".tsx"]
+			},
+			"typescript": {
+				"project": "./tsconfig.json"
+			}
+		},
+		"react": {
+			"pragma": "React",
+			"version": "detect"
+		}
+	},
+	"rules": {
+		//=== TS ===//
+		"@typescript-eslint/explicit-module-boundary-types": 0,
+
+		//=== SORT IMPORTS ===//
+		"sort-imports": [
+			1,
+			{
+				"ignoreDeclarationSort": true
+			}
+		],
+		"import/order": [
+			1,
+			{
+				"alphabetize": {
+					"caseInsensitive": true,
+					"order": "asc"
+				},
+				"groups": ["builtin", "external", "internal", ["parent", "sibling"], "index"],
+				"newlines-between": "always"
+			}
+		],
+
+		//=== UNICORN ===
+		"unicorn/no-abusive-eslint-disable": 0,
+		"unicorn/filename-case": 0,
+		"unicorn/prevent-abbreviations": 0,
+		"unicorn/explicit-length-check": 0,
+		"unicorn/no-array-reduce": 0,
+		"unicorn/no-array-for-each": 0,
+		"unicorn/no-nested-ternary": 0,
+
+		//=== REACT ===//
+		"react/jsx-boolean-value": [1, "always"],
+		"react/prop-types": 0,
+		"react/react-in-jsx-scope": 0,
+		"react/display-name": 0
+	}
+}
